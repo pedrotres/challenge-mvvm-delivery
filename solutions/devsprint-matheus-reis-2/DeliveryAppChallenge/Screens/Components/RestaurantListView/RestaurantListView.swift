@@ -12,16 +12,11 @@ protocol RestaurantListViewDataSource {
     func getItemCount() -> Int
 }
 
-protocol RestaurantListDelegate: AnyObject {
-    func didSelectGoToRestaurantDetails()
-}
-
 class RestaurantListView: UIView {
     
     static let cellSize = CGFloat(82)
     
     private let cellIdentifier = "RestaurantCellIdentifier"
-    weak var delegate: RestaurantListDelegate?
     public var dataSource: RestaurantListViewDataSource?
     
     lazy var tableView: UITableView = {
@@ -93,6 +88,6 @@ extension RestaurantListView: UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.delegate?.didSelectGoToRestaurantDetails()
+        
     }
 }
